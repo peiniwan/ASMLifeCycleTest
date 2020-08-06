@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'kotlin'
+apply plugin: 'groovy'
 
 
 buildscript {
@@ -7,7 +8,7 @@ buildscript {
         mavenCentral()
     }
     dependencies{
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.71"
     }
 }
 
@@ -29,5 +30,5 @@ dependencies {
     implementation group: 'org.ow2.asm', name: 'asm-commons', version: '7.1'
     implementation 'com.android.tools.build:gradle:3.2.1'
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.61"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.71"
 }

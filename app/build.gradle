@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.hencoder.trace'
 apply plugin: 'danny.asm.lifecycle'//properties名字
+apply plugin: 'build-time'
+
+taskExecTime {
+    threshold 100
+    sorted true
+}
+
+
 buildscript {
     repositories {
         google()
