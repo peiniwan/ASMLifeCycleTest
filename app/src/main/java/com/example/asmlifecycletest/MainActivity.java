@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         SystemClock.sleep(780);
         final long delta = System.currentTimeMillis() - start;
 //        long start = getTime();
-//        toLong(start);
+        toLong(start);
     }
 
     private void toLong(long start) {

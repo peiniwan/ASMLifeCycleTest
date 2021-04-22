@@ -14,11 +14,12 @@ buildscript {
         google()
         jcenter()
         //自定义插件maven地址
+        //注意：重新部署时，需要先在 app module 的 build.gradle 中将插件依赖注释，否则报错。
         maven { url '../asm_lifecycle_repo' }
     }
     dependencies {
         //加载自定义插件 group + module + version
-        classpath 'danny.lifecycle.plugin:asm_lifecycle_plugin:1.0.0'
+        classpath 'danny.lifecycle.plugin:asm_lifecycle_plugin:1.0.1'
     }
 }
 
