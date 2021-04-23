@@ -56,13 +56,15 @@ public class LifeCycleTransform extends Transform {
                 if (dir) {
                     dir.traverse(type: FileType.FILES, nameFilter: ~/.*\.class/) { File file ->
                         System.out.println("find class: " + file.name)
-                        //对class文件进行读取与解析
+                        //对class文件进行读取与解析    //创建ClassReader，传入class字节码的输入流
                         ClassReader classReader = new ClassReader(file.bytes)
-                        //对class文件的写入
+                        //对class文件的写入    //创建ClassWriter，绑定classReader
                         ClassWriter classWriter = new ClassWriter(classReader, ClassWriter.COMPUTE_MAXS)
                         //访问class文件相应的内容，解析到某一个结构就会通知到ClassVisitor的相应方法
+                        //创建自定义的LifecycleClassVisitor，并绑定classWriter
                         ClassVisitor classVisitor = new LifecycleClassVisitor(classWriter)
                         //依次调用 ClassVisitor接口的各个方法
+                        //接受一个实现了 ClassVisitor接口的对象实例作为参数，然后依次调用 ClassVisitor接口的各个方法
                         classReader.accept(classVisitor, ClassReader.EXPAND_FRAMES)
                         //toByteArray方法会将最终修改的字节码以 byte 数组形式返回。
                         byte[] bytes = classWriter.toByteArray()

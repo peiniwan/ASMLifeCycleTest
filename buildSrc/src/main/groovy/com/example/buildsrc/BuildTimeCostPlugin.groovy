@@ -78,40 +78,40 @@ class BuildTimeCostPlugin implements Plugin<Project> {
                 println "---------------------------------------"
                 println "build finished, now println all task execution time:"
                 //按 task 执行顺序打印出执行时长信息
-                for (String path : taskPathList) {
-                    long t = timeCostMap.get(path).total
-                    if (t >= timeCostExt.threshold) {
-                        println("${path}  [${t}ms]")
-                    }
-                }
-
-//                if (BuildTimeCostPlugin.this.timeCostExt.sorted) {
-//                    //进行排序
-//                    List<TaskExecTimeInfo> list = new ArrayList<>()
-//                    for (Map.Entry<String, TaskExecTimeInfo> entry : timeCostMap) {
-//                        list.add(entry.value)
-//                    }
-//                    Collections.sort(list, new Comparator<TaskExecTimeInfo>() {
-//                        @Override
-//                        int compare(TaskExecTimeInfo t1, TaskExecTimeInfo t2) {
-//                            return t2.total - t1.total
-//                        }
-//                    })
-//                    for (TaskExecTimeInfo timeInfo : list) {
-//                        long t = timeInfo.total
-//                        if (t >= BuildTimeCostPlugin.this.timeCostExt.threshold) {
-//                            println("${timeInfo.path}  [${t}ms]")
-//                        }
-//                    }
-//                } else {
-//                    //按 task 执行顺序打印出执行时长信息
-//                    for (String path : taskPathList) {
-//                        long t = timeCostMap.get(path).total
-//                        if (t >= BuildTimeCostPlugin.this.timeCostExt.threshold) {
-//                            println("${path}  [${t}ms]")
-//                        }
+//                for (String path : taskPathList) {
+//                    long t = timeCostMap.get(path).total
+//                    if (t >= timeCostExt.threshold) {
+//                        println("${path}  [${t}ms]")
 //                    }
 //                }
+
+                if (BuildTimeCostPlugin.this.timeCostExt.sorted) {
+                    //进行排序
+                    List<TaskExecTimeInfo> list = new ArrayList<>()
+                    for (Map.Entry<String, TaskExecTimeInfo> entry : timeCostMap) {
+                        list.add(entry.value)
+                    }
+                    Collections.sort(list, new Comparator<TaskExecTimeInfo>() {
+                        @Override
+                        int compare(TaskExecTimeInfo t1, TaskExecTimeInfo t2) {
+                            return t2.total - t1.total
+                        }
+                    })
+                    for (TaskExecTimeInfo timeInfo : list) {
+                        long t = timeInfo.total
+                        if (t >= BuildTimeCostPlugin.this.timeCostExt.threshold) {
+                            println("${timeInfo.path}  [${t}ms]")
+                        }
+                    }
+                } else {
+                    //按 task 执行顺序打印出执行时长信息
+                    for (String path : taskPathList) {
+                        long t = timeCostMap.get(path).total
+                        if (t >= BuildTimeCostPlugin.this.timeCostExt.threshold) {
+                            println("${path}  [${t}ms]")
+                        }
+                    }
+                }
                 println "---------------------------------------"
                 println "---------------------------------------"
             }
