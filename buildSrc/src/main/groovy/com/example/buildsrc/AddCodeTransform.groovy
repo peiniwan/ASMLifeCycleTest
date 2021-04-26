@@ -91,7 +91,7 @@ class AddCodeTransform extends Transform {
         transformInvocation.inputs.each { input ->
             input.directoryInputs.each { dirInput ->
                 handleDirectory(dirInput.file)
-                MyInject.injectDir(dirInput.file.absolutePath,"com/example/asmlifecycletest")
+                MyInject.injectDir(dirInput.file.absolutePath, "com/example/asmlifecycletest")
 
                 def dest = outputProvider.getContentLocation(dirInput.name, dirInput.contentTypes, dirInput.scopes, Format.DIRECTORY)
                 // 将input的目录复制到output指定目录
@@ -188,6 +188,11 @@ class AddCodeTransform extends Transform {
                 filePath.contains("TestAdd")
     }
 
+
+    /**
+     * 新生产了一个类，不知为何没成功
+     * 只供参考
+     */
     CtClass modifyClass(InputStream is) {
         def classFile = new ClassFile(new DataInputStream(new BufferedInputStream(is)))
         def ctClass = classPool.get(classFile.name)

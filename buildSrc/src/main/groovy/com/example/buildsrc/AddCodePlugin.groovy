@@ -14,6 +14,7 @@ import java.util.jar.JarOutputStream
 class AddCodePlugin implements Plugin<Project> {
     void apply(Project project) {
         project.android.registerTransform(new AddCodeTransform(project))
+        project.android.registerTransform(new AddCodeTransform2(project))
     }
 }
 
