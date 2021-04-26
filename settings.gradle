@@ -1,3 +1,4 @@
+include ':publishApp'
 rootProject.name='ASMLifeCycleTest'
 include ':app'
 include ':asm_lifecycle_plugin'

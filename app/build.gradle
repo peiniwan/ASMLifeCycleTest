@@ -1,7 +1,22 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.hencoder.trace'
+//apply plugin: com.example.buildsrc.TracePlugin
 apply plugin: 'danny.asm.lifecycle'//properties名字
 apply plugin: 'build-time'
+apply plugin: 'add-code'
+//apply plugin: com.example.buildsrc.AddCodePlugin
+apply plugin: 'com.ly.plugin.publishApp'
+
+publishAppInfo {
+    qihuPath = ""
+    keyStorePath = ""
+    keyStorePass = ""
+    keyStoreKeyAlias = ""
+    keyStoreKeyAliasPass = ""
+    channelPath = ""
+    outputPath = ""
+}
+
 
 taskExecTime {
     threshold 100
@@ -16,10 +31,14 @@ buildscript {
         //自定义插件maven地址
         //注意：重新部署时，需要先在 app module 的 build.gradle 中将插件依赖注释，否则报错。
         maven { url '../asm_lifecycle_repo' }
+        maven { url '../publish_app_repo' }
+
     }
     dependencies {
         //加载自定义插件 group + module + version
         classpath 'danny.lifecycle.plugin:asm_lifecycle_plugin:1.0.1'
+        classpath 'com.ly.plugin.publishApp:publishApp:1.0.1'
+
     }
 }
 

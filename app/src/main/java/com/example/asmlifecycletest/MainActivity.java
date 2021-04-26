@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, BActivity.class));
             }
         });
+
+        TestAdd testAdd = new TestAdd();
+        testAdd.release();
     }
 
     public void onClick(View view) {
