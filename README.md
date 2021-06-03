@@ -1,5 +1,5 @@
 ## Gradle插件练习
-分别使用buildSrc和完全独立的项目中编写gradle插件
+分别使用buildSrc和独立module中编写gradle插件
 
 * PublishAppPlugin 多渠道打包
 * LifeCyclePlugin 使用ASM在每一个 Activity 打开时输出相应的 log 日志
