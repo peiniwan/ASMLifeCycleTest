@@ -3,8 +3,8 @@ apply plugin: 'com.hencoder.trace'
 //apply plugin: com.example.buildsrc.TracePlugin
 apply plugin: 'danny.asm.lifecycle'//properties名字
 apply plugin: 'build-time'
-apply plugin: 'add-code'
-//apply plugin: com.example.buildsrc.AddCodePlugin
+//apply plugin: 'add-code'
+apply plugin: com.example.buildsrc.AddCodePlugin
 apply plugin: 'com.ly.plugin.publishApp'
 
 publishAppInfo {

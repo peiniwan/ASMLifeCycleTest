@@ -21,7 +21,7 @@ import MyInject
 /**
  * 修改第三方开源库中一个类的方法，具体是需要在这个方法之前加入一段我们自己的代码来根据需求实现拦截，
  * 我的做法是：在项目中写一个静态方法，然后在这个方法之前调用我们的静态方法，这样就可以实现拦截功能了
- * 没成功
+ * 修改方法不成功
  */
 class AddCodeTransform extends Transform {
 
@@ -190,8 +190,7 @@ class AddCodeTransform extends Transform {
 
 
     /**
-     * 新生产了一个类，不知为何没成功
-     * 只供参考
+     *  不成功，看AddCodeTransform2，成功
      */
     CtClass modifyClass(InputStream is) {
         def classFile = new ClassFile(new DataInputStream(new BufferedInputStream(is)))
