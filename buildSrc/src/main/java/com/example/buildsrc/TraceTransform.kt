@@ -16,7 +16,9 @@ import java.util.jar.JarFile
 import java.util.jar.JarOutputStream
 import java.util.zip.ZipEntry
 
-
+/**
+ * ClassTraceVisitor  没生效
+ */
 internal class TraceTransform : Transform() {
     override fun getName() = "traceTransform"
 
@@ -64,7 +66,6 @@ internal class TraceTransform : Transform() {
             println(jarInput.file.absolutePath)
             return
         }
-
         val tmpFile = File(jarInput.file.parentFile, "${jarInput.file.name}.temp").also { it.createNewFile() }
 
         JarFile(jarInput.file).use { jarFile ->

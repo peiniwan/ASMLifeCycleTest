@@ -17,7 +17,7 @@ public class LifecycleMethodVisitor extends MethodVisitor {
     @Override
     public void visitCode() {
         super.visitCode();
-        System.out.println("MethodVisitor visitCode------");
+        //System.out.println("MethodVisitor visitCode------");
 
         mv.visitLdcInsn("TAG");
         mv.visitLdcInsn(className + "---->" + methodName);

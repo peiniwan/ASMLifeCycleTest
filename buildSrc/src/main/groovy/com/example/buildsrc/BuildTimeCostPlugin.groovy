@@ -100,7 +100,7 @@ class BuildTimeCostPlugin implements Plugin<Project> {
                     for (TaskExecTimeInfo timeInfo : list) {
                         long t = timeInfo.total
                         if (t >= BuildTimeCostPlugin.this.timeCostExt.threshold) {
-                            println("${timeInfo.path}  [${t}ms]")
+                            println("编译时长：${timeInfo.path}  [${t}ms]")
                         }
                     }
                 } else {
@@ -108,7 +108,7 @@ class BuildTimeCostPlugin implements Plugin<Project> {
                     for (String path : taskPathList) {
                         long t = timeCostMap.get(path).total
                         if (t >= BuildTimeCostPlugin.this.timeCostExt.threshold) {
-                            println("${path}  [${t}ms]")
+                            println("编译时长：${path}  [${t}ms]")
                         }
                     }
                 }

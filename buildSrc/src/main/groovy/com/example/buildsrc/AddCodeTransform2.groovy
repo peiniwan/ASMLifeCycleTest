@@ -112,7 +112,8 @@ class AddCodeTransform2 extends Transform {
             return
         }
         if (filePath.contains('R$') || filePath.contains('R.class')
-                || filePath.contains("BuildConfig.class")) {
+                || filePath.contains("BuildConfig.class") || !filePath.contains("MainActivity")) {
+//            println TAG+"：filePath return：" + filePath
             return
         }
 
@@ -134,7 +135,7 @@ class AddCodeTransform2 extends Transform {
             // 主类名$内部类名.class（如果匿名内部类，这内部类名为数字) 有接口并且有匿名内部类
             if (name.contains("\$")) {
                 println TAG+"：class is inner class：" + ctClass.name
-                println TAG+"：CtClass: " + ctClass
+//                println TAG+"：CtClass: " + ctClass
                 CtClass outer = pool.get(name.substring(0, name.indexOf("\$")))
 
                 CtField field = ctClass.getFields().find {
@@ -182,7 +183,6 @@ class AddCodeTransform2 extends Transform {
 
         ctClass.writeFile(fileName)
         ctClass.detach()
-        println TAG+"：write file: " + fileName + "\\" + ctClass.name
         println TAG+"：modify method: " + method.name + " succeed"
     }
 

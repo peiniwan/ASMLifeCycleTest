@@ -55,7 +55,7 @@ public class LifeCycleTransform extends Transform {
                 File dir = directoryInput.file
                 if (dir) {
                     dir.traverse(type: FileType.FILES, nameFilter: ~/.*\.class/) { File file ->
-                        System.out.println("find class: " + file.name)
+//                        System.out.println("find class: " + file.name)
                         //对class文件进行读取与解析    //创建ClassReader，传入class字节码的输入流
                         ClassReader classReader = new ClassReader(file.bytes)
                         //对class文件的写入    //创建ClassWriter，绑定classReader

@@ -5,7 +5,9 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 /**
- * 打印类里的每个方法
+ * Trace beginSection and endSection
+ * 获取方法运行时间，分析Trace文件
+ * https://app.yinxiang.com/fx/386dceae-99ee-4732-9ac5-d40b2927b1d2
  */
 class TracePlugin : Plugin<Project> {
     override fun apply(project: Project) {

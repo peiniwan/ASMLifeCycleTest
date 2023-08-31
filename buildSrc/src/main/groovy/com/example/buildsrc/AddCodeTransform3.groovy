@@ -12,6 +12,7 @@ import org.apache.commons.io.FileUtils
 import org.gradle.api.Project
 
 /**
+ *  Java 字节码操作库 javassist 来操作和修改类的字节码
  * 双击拦截
  */
 class AddCodeTransform3 extends Transform {

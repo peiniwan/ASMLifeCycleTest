@@ -21,7 +21,7 @@ public class LifecycleClassVisitor extends ClassVisitor {
 
     @Override
     public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
-        System.out.println("ClassVisitor visitMethod name-------" + name + ", superName is " + superName);
+        //System.out.println("ClassVisitor visitMethod name-------" + name + ", superName is " + superName);
         MethodVisitor mv = cv.visitMethod(access, name, desc, signature, exceptions);
 
         if (superName.equals("androidx/appcompat/app/AppCompatActivity")) {
