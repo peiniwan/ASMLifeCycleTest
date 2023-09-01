@@ -8,20 +8,16 @@ dependencies {
     compile localGroovy()
 
     compile 'com.android.tools.build:gradle:3.5.0'
-
-    //ASM相关依赖
-    implementation 'org.ow2.asm:asm:7.1'
-    implementation 'org.ow2.asm:asm-commons:7.1'
 }
 
-group='danny.lifecycle.plugin'
+group='com.ly.plugin.publishApp'
 version='1.0.1'
 
 uploadArchives {
     repositories {
         mavenDeployer {
             //本地的Maven地址设置
-            repository(url: uri('../asm_lifecycle_repo'))
+            repository(url: uri('../publish_app_repo'))
         }
     }
 }

@@ -11,7 +11,7 @@ class PublishAppTask extends DefaultTask {
     @TaskAction
     void doAction() {
         //打包已完成
-
+        println "打包已完成"
         //这里的路径其实是不严谨的·
         def oldApkPath = "${project.getBuildDir()}/outputs/apk/release/app-release.apk"
 
